@@ -4,6 +4,7 @@ function promedio(num,qty){
 let suma = 0;
 let contador = 0;
 let entrada = "";
+let listaNumeros = [];
 do{
     entrada = prompt("Ingresar un numero, digite ESC si no quiere seguir");
     if (entrada == "ESC") break;
@@ -13,11 +14,15 @@ do{
         alert("El valor introducido " + entrada + " no es un numero");
     } else {
         contador++
-        suma = suma + numero;
+        suma += numero;
         promedio(suma,contador);
+        listaNumeros.push(entrada);
     }
     if(confirm("¿Desea seguir ingresando datos?")){
     } else break;
 } while (entrada != "ESC")
 
-alert(promedio(suma,contador));
+alert("Los valores ingresados son los siguientes: " + "\n" + listaNumeros.join("\n"));
+alert("Resultado: " + promedio(suma,contador));
+
+
